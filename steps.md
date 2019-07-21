@@ -1,9 +1,14 @@
-1.Extracted orders data as orders.csv from ORACLE RDS using SQL DEVELOPER:
+# Extract
+Extracted orders data as orders.csv from ORACLE RDS using SQL DEVELOPER:
 
-2.Uploaded orders.csv file to S3 BUCKET using POSTMAN
+# Upload
+Uploaded orders.csv file to S3 BUCKET using POSTMAN
 
-3.STEPS for importing the data into Snowflake from the s3 bucket:
+# Loading/Un-Loading Snowflake
 
+- STEPS for importing the data into Snowflake from the s3 bucket:
+
+```sh
 create or replace warehouse sf_orcl_wh with
   warehouse_size='X-SMALL'
   auto_suspend = 180
@@ -44,10 +49,11 @@ from orders
 group by extract(year from order_date)
 order by yr
 );
+```
 
+# Exporting QUERY OUTPUT to S3 BUCKET:
 
-4.Exporting QUERY OUTPUT to S3 BUCKET:
-
+```sh
 copy into s3://myorcale/snowflake/YR_ORDERS.csv
 from YR_ORDERS 
 file_format=(type=csv compression=None) header=True
@@ -57,7 +63,6 @@ overwrite=true;
 drop warehouse sf_orcl_wh;
 
 drop database sf_orcl;
-
-
+```
 
 
