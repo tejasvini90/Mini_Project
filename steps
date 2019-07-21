@@ -25,7 +25,7 @@ CREATE or replace TABLE ORDERS
    ) ;
 
 copy into ORDERS  
-  from s3://myorcale/snowflake credentials=(aws_key_id='AKIA2LOD6GN6YUHVGSS3' aws_secret_key='0jQ6nygX6Cl4qMUp+JLNgypdZCbWocqjsHQAUo9V')
+  from s3://myorcale/snowflake credentials=(aws_key='############' secret_key='###########')
   file_format = (type = csv field_optionally_enclosed_by='"' skip_header = 1 null_if = ('NULL', 'null') 
   empty_field_as_null = true 
  )
@@ -48,10 +48,10 @@ order by yr
 
 4.Exporting QUERY OUTPUT to S3 BUCKET:
 
-copy into s3://myorcale/snowflake/QUERY_YR_SALES.csv
-from QUERY_YR_SALES 
+copy into s3://myorcale/snowflake/YR_ORDERS.csv
+from YR_ORDERS 
 file_format=(type=csv header=true compression=None)
-credentials=(aws_key_id='AKIA2LOD6GN6YUHVGSS3' aws_secret_key='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')
+credentials=(aws_key_id='#####################' aws_secret_key='##########################')
 overwrite=true;
 
 drop warehouse sf_orcl_wh;
