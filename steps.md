@@ -51,7 +51,7 @@ order by yr
 );
 ```
 
-# Exporting QUERY OUTPUT to S3 BUCKET:
+- Exporting QUERY OUTPUT to S3 BUCKET:
 
 ```sh
 copy into s3://myorcale/snowflake/YR_ORDERS.csv
