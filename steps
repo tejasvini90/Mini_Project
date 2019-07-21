@@ -50,7 +50,7 @@ order by yr
 
 copy into s3://myorcale/snowflake/YR_ORDERS.csv
 from YR_ORDERS 
-file_format=(type=csv header=true compression=None)
+file_format=(type=csv compression=None) header=True
 credentials=(aws_key_id='#####################' aws_secret_key='##########################')
 overwrite=true;
 
