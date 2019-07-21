@@ -1,5 +1,5 @@
 # Mini_Project
-Create visualization for Query Output from Snowflake
+Create visualization in Databricks for Query Output from Snowflake
 
 # Steps
 https://github.com/tejasvini90/Mini_Project/blob/master/steps.md
